@@ -3,6 +3,7 @@ package br.edu.ifrs.petbemestar.web;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +49,12 @@ public class ClienteController {
 		cliente.setEmail(dados.getEmail());
 	    dao.atualizar(cliente);
 	    return cliente;
+	}
+	
+	@DeleteMapping("/cliente/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void remover(@PathVariable Long id) {
+	    dao.remover(id);
 	}
 
 }
