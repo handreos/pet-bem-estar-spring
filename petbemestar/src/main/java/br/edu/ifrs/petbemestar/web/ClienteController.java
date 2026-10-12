@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -31,6 +32,11 @@ public class ClienteController {
 	public Cliente cadastrar(@RequestBody Cliente cliente) {
 	    dao.salvar(cliente);
 	    return cliente;
+	}
+	
+	@GetMapping("/cliente/{id}")
+	public Cliente buscarPorId(@PathVariable Long id) {
+	    return dao.buscarPorId(id);
 	}
 
 }
