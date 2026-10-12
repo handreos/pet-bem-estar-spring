@@ -20,7 +20,7 @@ public class ClienteDAOJPA implements ClienteDAO {
 	@Override
     public List<Cliente> listarTodos() {
         return em
-            .createQuery("SELECT c FROM Serie c", Cliente.class)
+            .createQuery("SELECT c FROM Cliente c", Cliente.class)
             .getResultList();
     }
 	
